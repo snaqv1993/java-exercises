@@ -14,7 +14,7 @@ public class MiniProject {
     public static void main(String[] args) {
 
         // TODO: 1 - Create a Scanner for user input
-
+        Scanner scanner = new Scanner(System.in);
 
         // TODO: 2 - Display a menu with the following options:
         // Print:
@@ -24,15 +24,24 @@ public class MiniProject {
         //   "3. Multiply"
         //   "4. Divide"
         //   "Choose an operation (1-4): "
+        System.out.println("=== Simple Calculator ===");
+        System.out.println("1. Add");
+        System.out.println("2. Subtract");
+        System.out.println("3. Multiply");
+        System.out.println("4. Divide");
+        System.out.println("Choose an operation (1-4): ");
 
 
         // TODO: 3 - Read the user's choice into an int variable
-
+        int selectedNum = scanner.nextInt();
 
         // TODO: 4 - Prompt and read two double numbers from the user
         // Print "Enter first number: " and read it.
         // Print "Enter second number: " and read it.
-
+        System.out.print("Enter first number: ");
+        double fNum = scanner.nextDouble();
+        System.out.print("Enter second number: ");
+        double sNum = scanner.nextDouble();
 
         // TODO: 5 - Use a switch statement to perform the chosen operation and print the result
         // Case 1: Print "Result: " + (num1 + num2)
@@ -40,6 +49,29 @@ public class MiniProject {
         // Case 3: Print "Result: " + (num1 * num2)
         // Case 4: Perform division (but handle division by zero first - see TODO 6)
         // Default: Print "Invalid choice"
+        switch (selectedNum){
+            case 1:
+                System.out.println("Result: " + (fNum + sNum));
+                break;
+            case 2:
+                System.out.println("Result: " + (fNum - sNum));
+                break;
+            case 3:
+                System.out.println("Result: " + (fNum * sNum));
+                break;
+            case 4:
+                if(sNum == 0){
+                    System.out.println("Error: Cannot divide by zero");
+                }
+                else {
+                    System.out.println("Result: " + (fNum / sNum));
+                }
+                break;
+            default:
+                System.out.println("Invalid choice");
+        }
+
+        scanner.close();
 
 
         // TODO: 6 - Inside case 4, handle division by zero with an if statement
